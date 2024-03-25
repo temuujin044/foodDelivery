@@ -40,6 +40,12 @@ const theme = createTheme({
       lineHeight: "normal",
       textDecorationLine: "underline",
     },
+    h4: {
+      fontSize: "16px",
+      fontStyle: "normal",
+      fontWeight: 400,
+      lineHeight: "normal",
+    },
   },
 });
 
