@@ -1,5 +1,5 @@
 import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
+import { styled, alpha, useTheme } from "@mui/material/styles";
 import { Box, Container, InputBase, Stack, Typography } from "@mui/material";
 import { SearchIcon, Basket, Pinecone, Profile } from "../icons";
 import { useState } from "react";
@@ -47,6 +47,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export const Header = () => {
   const [active, setActive] = useState<number>(1);
+  const theme = useTheme();
   const menu = [
     {
       id: 1,
@@ -74,6 +75,7 @@ export const Header = () => {
   const handleSubmit = (id: number) => {
     setActive(id);
   };
+  console.log("Color:", theme.palette.primary.main);
   return (
     <Container>
       <Stack alignItems={"center"} justifyItems={"center"}>
@@ -106,7 +108,8 @@ export const Header = () => {
                   key={key}
                   onClick={() => handleSubmit(e.id)}
                   sx={{
-                    color: active === e.id ? "#18BA51" : "black",
+                    color:
+                      active === e.id ? theme.palette.primary.main : "black",
                     cursor: "pointer",
                   }}
                 >
