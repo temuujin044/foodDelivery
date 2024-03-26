@@ -46,6 +46,18 @@ const theme = createTheme({
       fontWeight: 400,
       lineHeight: "normal",
     },
+    h5: {
+      fontSize: "28px",
+      fontStyle: "normal",
+      fontWeight: 700,
+      lineHeight: "normal",
+    },
+    h6: {
+      fontSize: "14px",
+      fontStyle: "normal",
+      fontWeight: 400,
+      lineHeight: "normal",
+    },
   },
 });
 

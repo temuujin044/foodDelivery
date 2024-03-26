@@ -1,13 +1,10 @@
 import { Stack, Typography, InputAdornment } from "@mui/material";
 import { OutlinedInput, FormControl } from "@mui/material";
-import { IconButton, Button, useTheme } from "@mui/material";
+import { IconButton, Button } from "@mui/material";
 import { VisibilityOff, Visibility } from "@mui/icons-material";
-import { useRouter } from "next/router";
 import * as React from "react";
 
-export const Login = () => {
-  const router = useRouter();
-  const theme = useTheme();
+export const SignUp = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -29,7 +26,6 @@ export const Login = () => {
     setPassword(event.target.value);
     setIsInputFilled(!!event.target.value && !!email);
   };
-
   return (
     <Stack
       padding={"32px"}
@@ -43,6 +39,19 @@ export const Login = () => {
       <Stack>
         <FormControl sx={{ width: "384px", mb: "16px" }} variant="outlined">
           <Typography variant="h6" mb={"8px"}>
+            Нэр
+          </Typography>
+
+          <OutlinedInput
+            sx={{ p: 0 }}
+            placeholder="Нэрээ оруулна уу"
+            id="outlined-adornment-weight"
+            value={email}
+            onChange={handleEmailChange}
+          />
+        </FormControl>
+        <FormControl sx={{ width: "384px", mb: "16px" }} variant="outlined">
+          <Typography variant="h6" mb={"8px"}>
             Имэйл
           </Typography>
 
@@ -54,18 +63,31 @@ export const Login = () => {
             onChange={handleEmailChange}
           />
         </FormControl>
-        <FormControl sx={{ width: "384px", mb: "8px" }} variant="outlined">
+        <FormControl sx={{ width: "384px", mb: "16px" }} variant="outlined">
+          <Typography variant="h6" mb={"8px"}>
+            Хаяг
+          </Typography>
+
+          <OutlinedInput
+            sx={{ p: 0 }}
+            placeholder="Та хаягаа оруулна уу"
+            id="outlined-adornment-weight"
+            value={email}
+            onChange={handleEmailChange}
+          />
+        </FormControl>
+        <FormControl sx={{ width: "384px", mb: "16px" }} variant="outlined">
           <Typography variant="h6" mb={"8px"}>
             Нууц үг
           </Typography>
           <OutlinedInput
-            placeholder="Нууц үг"
+            placeholder="Нууц үгээ оруулна уу"
             id="outlined-adornment-password"
             type={showPassword ? "text" : "password"}
             value={password}
             onChange={handlePasswordChange}
             endAdornment={
-              <InputAdornment position="end">
+              <InputAdornment position="start">
                 <IconButton
                   aria-label="toggle password visibility"
                   onClick={handleClickShowPassword}
@@ -78,13 +100,22 @@ export const Login = () => {
             }
           />
         </FormControl>
-        <Stack direction={"row"} justifyContent={"flex-end"}>
-          <Button variant="text">
-            <Typography color={"#3F4145"} variant="h6">
-              Нууц үг сэргээх
-            </Typography>
-          </Button>
-        </Stack>
+        <FormControl sx={{ width: "384px", mb: "8px" }} variant="outlined">
+          <Typography variant="h6" mb={"8px"}>
+            Нууц үг давтах
+          </Typography>
+          <OutlinedInput
+            placeholder="Нууц үгээ оруулна уу"
+            id="outlined-adornment-password"
+            value={password}
+            onChange={handlePasswordChange}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton></IconButton>
+              </InputAdornment>
+            }
+          ></OutlinedInput>
+        </FormControl>
       </Stack>
       <Stack gap={"32px"} alignItems={"center"}>
         <Button
@@ -93,7 +124,7 @@ export const Login = () => {
             boxShadow: "none",
             borderRadius: "4px",
             backgroundColor: isInputFilled ? "#18BA51" : "#EEEFF2",
-            "&:hover": { backgroundColor: "" },
+            // "&:hover": { backgroundColor: "" },
             width: "384px",
             height: "48px",
             border: "none",
@@ -104,17 +135,6 @@ export const Login = () => {
             p={"9px"}
             color={isInputFilled ? "#fff" : "#1C20243D"}
           >
-            Нэвтрэх
-          </Typography>
-        </Button>
-        <Typography variant="h6">Эсвэл</Typography>
-
-        <Button
-          onClick={() => router.push("/")}
-          variant="outlined"
-          sx={{ borderRadius: "4px", width: "384px", height: "48px" }}
-        >
-          <Typography variant="h6" p={"9px"} color={theme.palette.primary.dark}>
             Бүртгүүлэх
           </Typography>
         </Button>
