@@ -1,15 +1,13 @@
-import React, { ChangeEvent, useEffect } from "react";
+import React, { ChangeEvent } from "react";
 import Box from "@mui/material/Box";
 import { Grid, Stack, Button, Checkbox } from "@mui/material";
 import { InputPass, InputField } from "./index";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-// import { useData } from "../../context/dataProvider";
 
 const fields = [
   { title: "Нэр", name: "name", placeHolder: "Нэрээ оруулна уу" },
   { title: "И-Мэйл", name: "email", placeHolder: "И-мэйл хаягаа оруулна уу" },
-  { title: "Утас", name: "phone", placeHolder: "Дугаараа оруулна уу" },
+  { title: "Хаяг", name: "address", placeHolder: "Та хаягаа оруулна уу" },
 ];
 const fieldForPassword = [
   { title: "Нууц үг", name: "password", placeHolder: "Нууц үгээ оруулна уу" },
@@ -23,20 +21,19 @@ const fieldForPassword = [
 type stateType = {
   name: string;
   email: string;
-  phone: string;
+  address: string;
   password: string;
   password2: string;
 };
-export const SignUp = () => {
+export const SignUpComp = () => {
   const [userdata, setUserdata] = useState<stateType>({
     name: "",
     email: "",
-    phone: "",
+    address: "",
     password: "",
     password2: "",
   });
   const [error, setError] = useState<string>();
-  const { push } = useRouter();
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setUserdata({ ...userdata, [name]: value });
@@ -48,7 +45,7 @@ export const SignUp = () => {
 
     try {
       const emptyFields = Object.entries(userdata).filter(
-        ([key, value]) => !value.trim()
+        ([value]) => !value.trim()
       );
       if (emptyFields.length > 0) {
         setError("Please fill in all fields");
@@ -56,12 +53,6 @@ export const SignUp = () => {
         if (userdata.password !== userdata.password2) {
           setError("Passwords do not match");
         }
-        // const { data } = await axios.post(
-        //   "https://fooddelivery-pg8c.onrender.com/signup",
-        //   userdata
-        // );
-        // console.log(data);
-        // push("/");
       }
     } catch (err: any) {
       console.log(err);
@@ -70,19 +61,17 @@ export const SignUp = () => {
   };
 
   return (
-    <Stack sx={{}}>
+    <Stack>
       <Grid
+        padding={"74px"}
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
-        sx={{ height: "100vh", width: "100vw" }}
       >
         <Grid
           sx={{
-            height: "722px",
             width: "448px",
-            paddingBottom: "32px",
-            paddingTop: "32px",
+            padding: "32px",
             gap: "50px",
             position: "relative",
           }}
@@ -113,12 +102,7 @@ export const SignUp = () => {
               />
             ))}
             {fieldForPassword.map((field, index) => (
-              <InputPass
-                key={index}
-                text={field.title}
-                name={field.name}
-                onchange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)}
-              />
+              <InputPass key={index} text={field.title} name={field.name} />
             ))}
           </Grid>
           <Stack>
@@ -136,7 +120,7 @@ export const SignUp = () => {
               </Box>
             )}
           </Stack>
-          <Stack sx={{ marginTop: "60px" }}>
+          <Stack sx={{ margin: "48px 0px 107px 0px" }}>
             <Box sx={{ fontFamily: "sans-serif" }}>
               <Checkbox />
               Үйлчилгээний нөхцөл зөвшөөрөх

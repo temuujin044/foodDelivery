@@ -5,7 +5,6 @@ import { Facebook, Instagram, Twitter } from "../icons";
 
 export const Footer = () => {
   const theme = useTheme();
-
   return (
     <Box
       display={"flex"}
@@ -22,32 +21,30 @@ export const Footer = () => {
           Food Delivery
         </Typography>
       </Stack>
-      <Stack alignItems={"center"}>
-        <Typography
-          display={"flex"}
-          width={"1200px"}
-          justifyContent={"space-between"}
-          variant="h3"
-        >
-          <Link href="#" underline="always" color={theme.palette.primary.light}>
-            Нүүр
-          </Link>
-          <Link href="#" underline="always" color={theme.palette.primary.light}>
-            Холбоо барих
-          </Link>
-          <Link href="#" underline="always" color={theme.palette.primary.light}>
-            Хоолны цэс
-          </Link>
-          <Link href="#" underline="always" color={theme.palette.primary.light}>
-            Үйлчилгээний нөхцөл
-          </Link>
-          <Link href="#" underline="always" color={theme.palette.primary.light}>
-            Хүргэлтийн бүс
-          </Link>
-          <Link href="#" underline="always" color={theme.palette.primary.light}>
-            Нууцлалын бодлого
-          </Link>
-        </Typography>
+      <Stack
+        direction={"row"}
+        width={"1200px"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+      >
+        <Link href="#" underline="hover" color={theme.palette.primary.light}>
+          Нүүр
+        </Link>
+        <Link href="#" underline="hover" color={theme.palette.primary.light}>
+          Холбоо барих
+        </Link>
+        <Link href="#" underline="hover" color={theme.palette.primary.light}>
+          Хоолны цэс
+        </Link>
+        <Link href="#" underline="hover" color={theme.palette.primary.light}>
+          Үйлчилгээний нөхцөл
+        </Link>
+        <Link href="#" underline="hover" color={theme.palette.primary.light}>
+          Хүргэлтийн бүс
+        </Link>
+        <Link href="#" underline="hover" color={theme.palette.primary.light}>
+          Нууцлалын бодлого
+        </Link>
       </Stack>
       <Stack direction={"row"} gap={"18px"}>
         <Facebook width={40} height={46} />

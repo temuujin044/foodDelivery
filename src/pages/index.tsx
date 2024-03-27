@@ -1,6 +1,6 @@
-import { SignUp } from "@/components/loginOrSignUp";
+import Login from "./login";
 
 const Home = () => {
-  return <SignUp />;
+  return <Login />;
 };
 export default Home;

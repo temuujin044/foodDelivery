@@ -2,10 +2,10 @@ import { Stack, Typography, InputAdornment } from "@mui/material";
 import { OutlinedInput, FormControl } from "@mui/material";
 import { IconButton, Button, useTheme } from "@mui/material";
 import { VisibilityOff, Visibility } from "@mui/icons-material";
-import { useRouter } from "next/router";
 import * as React from "react";
+import { useRouter } from "next/router";
 
-export const Login = () => {
+export const LoginComp = () => {
   const router = useRouter();
   const theme = useTheme();
   const [showPassword, setShowPassword] = React.useState(false);
@@ -28,6 +28,15 @@ export const Login = () => {
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
     setIsInputFilled(!!event.target.value && !!email);
+  };
+
+  const handleSubmit = () => {
+    console.log("Email:", email);
+    console.log("Password:", password);
+  };
+
+  const handleRegister = () => {
+    router.push("/signUp");
   };
 
   return (
@@ -89,6 +98,7 @@ export const Login = () => {
       <Stack gap={"32px"} alignItems={"center"}>
         <Button
           variant="outlined"
+          onClick={handleSubmit}
           sx={{
             boxShadow: "none",
             borderRadius: "4px",
@@ -110,8 +120,8 @@ export const Login = () => {
         <Typography variant="h6">Эсвэл</Typography>
 
         <Button
-          onClick={() => router.push("/")}
           variant="outlined"
+          onClick={handleRegister}
           sx={{ borderRadius: "4px", width: "384px", height: "48px" }}
         >
           <Typography variant="h6" p={"9px"} color={theme.palette.primary.dark}>
