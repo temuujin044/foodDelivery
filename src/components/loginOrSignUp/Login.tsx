@@ -1,4 +1,3 @@
-/* eslint-disable complexity */
 import { Stack, Typography, InputAdornment } from "@mui/material";
 import { OutlinedInput, FormControl } from "@mui/material";
 import { IconButton, Button, useTheme } from "@mui/material";
