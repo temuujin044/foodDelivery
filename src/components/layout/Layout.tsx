@@ -4,7 +4,7 @@ import { Header } from "./Header";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Stack width={"100vw"} justifyContent={"center"} alignSelf={"center"}>
+    <Stack minHeight={"100vh"} justifyContent={"space-between"}>
       <Header />
       <main>{children}</main>
       <Footer />
