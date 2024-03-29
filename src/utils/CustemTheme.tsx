@@ -1,5 +1,6 @@
 import { ThemeProvider, createTheme } from "@mui/material";
 import { ReactNode } from "react";
+import "@fontsource/comfortaa";
 
 const green = "#18BA51";
 const theme = createTheme({
@@ -57,6 +58,14 @@ const theme = createTheme({
       fontStyle: "normal",
       fontWeight: 400,
       lineHeight: "normal",
+    },
+    subtitle1: {
+      fontSize: "22px",
+      fontStyle: "normal",
+      fontWeight: 700,
+      lineHeight: "120%",
+      letterSpacing: "0.22px",
+      fontFamily: "Comfortaa",
     },
   },
 });

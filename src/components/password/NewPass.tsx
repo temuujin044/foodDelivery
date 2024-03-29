@@ -2,7 +2,6 @@ import { Button, Stack, Typography, FormControl } from "@mui/material";
 import { OutlinedInput, InputAdornment, IconButton } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import * as React from "react";
-import { useState } from "react";
 
 export const NewPass = () => {
   const [showPassword, setShowPassword] = React.useState(false);

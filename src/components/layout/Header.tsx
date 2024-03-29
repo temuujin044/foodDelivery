@@ -1,6 +1,7 @@
 import * as React from "react";
 import { styled, alpha, useTheme } from "@mui/material/styles";
 import { Box, Container, InputBase, Stack, Typography } from "@mui/material";
+import { Link } from "@mui/material";
 import { SearchIcon, Basket, Pinecone, Profile } from "../icons";
 import { useState } from "react";
 
@@ -18,7 +19,6 @@ const Search = styled("div")(({ theme }) => ({
     width: "auto",
   },
 }));
-
 const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
   height: "100%",
@@ -28,7 +28,6 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
 }));
-
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   width: "100%",
@@ -44,14 +43,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
-
 export const Header = () => {
-  const [active, setActive] = useState<number>(1);
+  const [active, setActive] = useState<number>(0);
   const theme = useTheme();
   const menu = [
     {
       id: 1,
       title: "НҮҮР",
+      link: "/",
     },
     {
       id: 2,
@@ -77,81 +76,84 @@ export const Header = () => {
   };
   console.log("Color:", theme.palette.primary.main);
   return (
-    <Container>
-      <Stack alignItems={"center"} justifyItems={"center"}>
-        <Stack
-          width="1258px"
-          height="57px"
-          direction="row"
-          px={3}
-          py={1}
-          justifyContent="space-between"
-        >
-          <Stack direction={"row"} alignItems="center" gap={3}>
-            <Box width="41px" height="41px" px="4.87px" py="7.18px">
-              <Pinecone width={31} height={27} />
-            </Box>
-            <Stack
-              direction="row"
-              gap={1}
-              fontSize="14px"
-              fontWeight={700}
-              alignItems={"center"}
-              justifyItems={"center"}
-            >
-              {menu.map((e, key) => (
-                <Typography
-                  fontSize="14px"
-                  fontWeight={700}
+    <Stack>
+      <Container>
+        <Stack alignItems={"center"} justifyItems={"center"}>
+          <Stack
+            width="1258px"
+            height="57px"
+            direction="row"
+            px={3}
+            py={1}
+            justifyContent="space-between"
+          >
+            <Stack direction={"row"} alignItems="center" gap={3}>
+              <Box width="41px" height="41px" px="4.87px" py="7.18px">
+                <Pinecone width={31} height={27} />
+              </Box>
+              <Stack
+                direction="row"
+                gap={1}
+                fontSize="14px"
+                fontWeight={700}
+                alignItems={"center"}
+                justifyItems={"center"}
+              >
+                {menu.map((e, key) => (
+                  <Link key={key} href={e.link} underline="none">
+                    <Typography
+                      fontSize="14px"
+                      fontWeight={700}
+                      px={2}
+                      py={1}
+                      key={key}
+                      onClick={() => handleSubmit(e.id)}
+                      sx={{
+                        color:
+                          active === e.id
+                            ? theme.palette.primary.main
+                            : "black",
+                        cursor: "pointer",
+                      }}
+                    >
+                      {e.title}
+                    </Typography>
+                  </Link>
+                ))}
+              </Stack>
+            </Stack>
+            <Stack direction="row" gap={2}>
+              <Box width={260} height={40}>
+                <Search sx={{ border: 1, borderColor: "black" }}>
+                  <SearchIconWrapper>
+                    <SearchIcon width={18} height={18} />
+                    <Search />
+                  </SearchIconWrapper>
+                  <StyledInputBase placeholder="Хайх" />
+                </Search>
+              </Box>
+              {menuRight.map((e, key) => (
+                <Stack
+                  key={key}
+                  direction="row"
+                  gap={1}
                   px={2}
                   py={1}
-                  key={key}
-                  onClick={() => handleSubmit(e.id)}
+                  alignItems={"center"}
                   sx={{
-                    color:
-                      active === e.id ? theme.palette.primary.main : "black",
                     cursor: "pointer",
                   }}
                 >
-                  {e.title}
-                </Typography>
+                  {e.icon}
+                  <Typography fontSize="14px" fontWeight={700}>
+                    {e.title}
+                  </Typography>
+                </Stack>
               ))}
             </Stack>
           </Stack>
-          <Stack direction="row" gap={2}>
-            <Box width={260} height={40}>
-              <Search sx={{ border: 1, borderColor: "black" }}>
-                <SearchIconWrapper>
-                  <SearchIcon width={18} height={18} />
-                  <Search />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  placeholder="Хайх"
-                  // inputProps={{ "aria-label": "search" }}
-                />
-              </Search>
-            </Box>
-            {menuRight.map((e, key) => (
-              <Stack
-                key={key}
-                direction="row"
-                gap={1}
-                px={2}
-                py={1}
-                alignItems={"center"}
-                sx={{
-                  cursor: "pointer",
-                }}
-              >
-                {e.icon}
-                <Typography fontSize="14px" fontWeight={700}>
-                  {e.title}
-                </Typography>
-              </Stack>
-            ))}
-          </Stack>
         </Stack>
-      </Stack>
-    </Container>
+      </Container>
+    </Stack>
   );
 };
