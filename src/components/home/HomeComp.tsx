@@ -1,6 +1,7 @@
 import { Stack, Typography, Box, useTheme } from "@mui/material";
 import Image from "next/image";
-import { Book, GreenStar, Time, Vegi } from "../icons";
+import { Book, Time, Vegi } from "../icons";
+import { HomeGategory } from "./HomeGategory";
 
 export const HomeComp = () => {
   const theme = useTheme();
@@ -104,12 +105,7 @@ export const HomeComp = () => {
           </Stack>
         ))}
       </Stack>
-      <Stack alignItems={"center"}>
-        <Stack width={"1200px"}>
-          <GreenStar width={32} height={32} />
-          <Typography></Typography>
-        </Stack>
-      </Stack>
+      <HomeGategory category={"Хямдралтай"} />
     </Stack>
   );
 };

@@ -3,26 +3,77 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import { CardActionArea, Box, Stack } from "@mui/material";
 
-export const FoodCard = ({ data }) => {
+interface data {
+  id: number;
+  category: string;
+  foodName: string;
+  imagePath: string;
+  ingredients: string[];
+  price: number;
+  sale: number;
+  stock: number;
+}
+
+export const FoodCard = ({ data }: { data: data }) => {
   console.log("data:", data);
   return (
-    <Card sx={{ width: "280px" }}>
-      <CardActionArea>
+    <Card
+      sx={{
+        width: 282,
+        height: 256,
+        boxShadow: 0,
+        borderRadius: "16px",
+        marginBottom: "60px",
+      }}
+    >
+      <CardActionArea disableRipple>
         <CardMedia
           component="img"
-          height="140"
+          width="282"
+          height="186"
           image={data.imagePath}
           alt="green iguana"
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {data.foodName}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {data.price}
-          </Typography>
+        {data.sale > 0 ? (
+          <Box
+            p="4px 16px"
+            borderRadius={"16px"}
+            bgcolor={"#18BA51"}
+            position={"absolute"}
+            top={"15px"}
+            right={"15px"}
+            border={1}
+            borderColor={"white"}
+          >
+            <Typography fontSize={"18px"} fontWeight={600} color={"white"}>
+              {data.sale + "%"}
+            </Typography>
+          </Box>
+        ) : (
+          <Stack></Stack>
+        )}
+
+        <CardContent sx={{ pt: "14px", px: 0, pb: 0 }}>
+          <Typography variant="subtitle2">{data.foodName}</Typography>
+          {data.sale > 0 ? (
+            <Stack direction={"row"} gap={2}>
+              <Typography variant="subtitle2" color={"#18BA51"}>
+                {data.price - (data.price * data.sale) / 100}₮
+              </Typography>
+              <Typography
+                variant="subtitle2"
+                sx={{ textDecoration: "line-through" }}
+              >
+                {data.price}₮
+              </Typography>
+            </Stack>
+          ) : (
+            <Typography variant="subtitle2" color={"#18BA51"}>
+              {data.price}₮
+            </Typography>
+          )}
         </CardContent>
       </CardActionArea>
     </Card>

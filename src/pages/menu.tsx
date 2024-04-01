@@ -1,5 +1,5 @@
 import { FoodCard } from "@/components/card/FoodCard";
-import { Container, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import { useEffect, useState } from "react";
 const Page = () => {
   interface FoodData {
@@ -25,17 +25,21 @@ const Page = () => {
       });
   }, []);
 
-  console.log("FOodData:", foodData);
+  console.log("FoodData:", foodData);
   return (
-    <Container>
-      <Stack direction={"row"} gap={1} flexWrap={"wrap"}>
-        {" "}
+    <Stack justifyContent={"center"} alignItems={"center"}>
+      <Stack
+        width={"1200px"}
+        justifyContent={"space-between"}
+        direction={"row"}
+        flexWrap={"wrap"}
+      >
         {foodData.map((data, index) => {
           // console.log(data);
           return <FoodCard data={data} key={index} />;
         })}
       </Stack>
-    </Container>
+    </Stack>
   );
 };
 export default Page;

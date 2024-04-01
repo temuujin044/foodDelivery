@@ -10,3 +10,4 @@ export * from "./Book";
 export * from "./Time";
 export * from "./Vegi";
 export * from "./GreenStar";
+export * from "./Arrow";

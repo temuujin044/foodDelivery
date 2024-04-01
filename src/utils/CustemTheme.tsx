@@ -1,6 +1,7 @@
 import { ThemeProvider, createTheme } from "@mui/material";
 import { ReactNode } from "react";
 import "@fontsource/comfortaa";
+import "@fontsource/poppins";
 
 const green = "#18BA51";
 const theme = createTheme({
@@ -66,6 +67,13 @@ const theme = createTheme({
       lineHeight: "120%",
       letterSpacing: "0.22px",
       fontFamily: "Comfortaa",
+    },
+    subtitle2: {
+      fontSize: "18px",
+      fontStyle: "normal",
+      fontWeight: 600,
+      fontFamily: "Poppins",
+      lineHeight: "normal",
     },
   },
 });
