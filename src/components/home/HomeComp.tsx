@@ -28,7 +28,7 @@ export const HomeComp = () => {
     },
   ];
   return (
-    <Stack>
+    <Stack alignItems={"center"}>
       <Stack
         direction={"row"}
         height={"788px"}
@@ -105,7 +105,14 @@ export const HomeComp = () => {
           </Stack>
         ))}
       </Stack>
-      <HomeGategory category={"Хямдралтай"} />
+      <Stack
+        width={"1200px"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        direction={"row"}
+      >
+        <HomeGategory category={"Хямдралтай"} />
+      </Stack>
     </Stack>
   );
 };
