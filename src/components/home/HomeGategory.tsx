@@ -1,26 +1,34 @@
-import { Stack, Typography } from "@mui/material";
-import { GreenStar, Arrow } from "../icons";
-
-export const HomeGategory = ({ category }: { category: string }) => {
+import { Container, Link, Stack, Typography } from "@mui/material";
+import { GreenStar } from "../icons";
+import { Arrow } from "../icons";
+import { CardModal } from "../card/CardModal";
+import { useFoodData } from "@/context/foodContext";
+export const HomeCategory = ({ category }: { category: string }) => {
+  const { foodData } = useFoodData();
+  console.log(foodData);
   return (
-    <Stack
-      padding={"16px  0px  16px 0px"}
-      direction={"row"}
-      alignItems={"center"}
-      gap={"900px"}
-    >
-      <Stack direction={"row"}>
-        <GreenStar width={32} height={32} />
-        <Typography fontSize={"22px"} fontWeight={700}>
-          {category}
-        </Typography>
+    <Container>
+      <Stack justifyContent={"space-between"} gap={3}>
+        <Stack
+          py={2}
+          direction={"row"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+        >
+          <Stack direction={"row"} alignItems={"center"}>
+            <GreenStar width={32} height={32} />
+            <Typography fontWeight={700} fontSize={"22px"}>
+              {category}
+            </Typography>
+          </Stack>
+          <Link sx={{ textDecoration: "none", cursor: "pointer" }}>
+            <Stack gap="5px" direction={"row"} alignItems={"center"}>
+              <Typography>Бүгдийг харах</Typography>
+              <Arrow width={15} height={25} />
+            </Stack>
+          </Link>
+        </Stack>
       </Stack>
-      <Stack gap={"5px"} alignItems={"center"} direction={"row"}>
-        <Typography variant="h4" color={"#18BA51"}>
-          Бүгдийг харах
-        </Typography>
-        <Arrow width={15} height={30} />
-      </Stack>
-    </Stack>
+    </Container>
   );
 };

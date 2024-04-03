@@ -24,12 +24,12 @@ export const FoodCard = ({ data }: { data: data }) => {
         width: 282,
         height: 256,
         boxShadow: 0,
-        borderRadius: "16px",
         marginBottom: "60px",
       }}
     >
       <CardActionArea disableRipple>
         <CardMedia
+          sx={{ borderRadius: "16px" }}
           component="img"
           width="282"
           height="186"

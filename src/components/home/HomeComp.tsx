@@ -1,7 +1,7 @@
 import { Stack, Typography, Box, useTheme } from "@mui/material";
 import Image from "next/image";
 import { Book, Time, Vegi } from "../icons";
-import { HomeGategory } from "./HomeGategory";
+import { HomeCategory } from ".";
 
 export const HomeComp = () => {
   const theme = useTheme();
@@ -111,7 +111,7 @@ export const HomeComp = () => {
         justifyContent={"center"}
         direction={"row"}
       >
-        <HomeGategory category={"Хямдралтай"} />
+        <HomeCategory category={"Main Dish"} />
       </Stack>
     </Stack>
   );
