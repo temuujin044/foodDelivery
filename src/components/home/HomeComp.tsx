@@ -109,9 +109,13 @@ export const HomeComp = () => {
         width={"1200px"}
         alignItems={"center"}
         justifyContent={"center"}
-        direction={"row"}
+        direction={"column"}
       >
-        <HomeCategory category={"Main Dish"} />
+        <HomeCategory category={"Sale"} />
+        <HomeCategory category={"Salads and Appetizers"} />
+        <HomeCategory category="Main Dish" />
+        <HomeCategory category="Breakfast" />
+        <HomeCategory category="Dessert" />
       </Stack>
     </Stack>
   );

@@ -1,7 +1,7 @@
 import { HomeComp } from "@/components/home";
-import { CardModal } from "@/components/card/CardModal";
+// import { FoodCard } from "@/components/card/FoodCard";
 
 const Home = () => {
-  return <CardModal />;
+  return <HomeComp />;
 };
 export default Home;

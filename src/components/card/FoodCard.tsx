@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea, Box, Stack } from "@mui/material";
 
-interface data {
+type data = {
   id: number;
   category: string;
   foodName: string;
@@ -14,7 +14,7 @@ interface data {
   price: number;
   sale: number;
   stock: number;
-}
+};
 
 export const FoodCard = ({ data }: { data: data }) => {
   console.log("data:", data);
