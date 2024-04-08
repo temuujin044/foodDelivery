@@ -11,3 +11,4 @@ export * from "./Time";
 export * from "./Vegi";
 export * from "./GreenStar";
 export * from "./Arrow";
+export * from "./LeftArrow";
