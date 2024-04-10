@@ -20,7 +20,7 @@ export const NavbarLeft = () => {
     {
       id: 3,
       title: "ХҮРГЭЛТИЙН БҮС",
-      link: "/deliveryzone",
+      link: "/delzone",
     },
   ];
   return (

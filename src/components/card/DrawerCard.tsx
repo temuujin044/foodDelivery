@@ -44,7 +44,11 @@ export const DrawerCard = () => {
             <Typography color={"#18BA51"} fontWeight={600} fontSize={"18px"}>
               {data.price}₮
             </Typography>
-            <Typography color={"#767676"}>{data.ingredients}</Typography>
+            <Typography color={"#767676"}>
+              {data.ingredients.map((e, index) =>
+                index === data.ingredients.length - 1 ? e : e + ", "
+              )}
+            </Typography>
             <Stack gap={1} direction={"row"} alignItems={"center"}>
               <Button sx={buttonStyle} variant="contained">
                 <Typography fontWeight={900}>-</Typography>

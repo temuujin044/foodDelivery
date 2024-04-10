@@ -1,17 +1,15 @@
 import * as React from "react";
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Container, Stack } from "@mui/material";
 import { Pinecone } from "@/components/icons";
 import { SearchInput } from "./SearchInput";
 import { NavbarLeft } from "./NavbarLeft";
 import { BasketDrawer } from "@/drawer/BasketDrawer";
-import { LoginModal } from "./loginModal";
-import { useState } from "react";
-import { useTheme } from "@mui/material";
+import { LoginModal } from "./LoginModal";
+
 export const Header = () => {
-  const theme = useTheme();
-  const gg = [
+  const modal = [
     {
-      id: 6,
+      id: 1,
 
       title: (
         <>
@@ -20,10 +18,6 @@ export const Header = () => {
       ),
     },
   ];
-  const [color, setColor] = useState<number>(1);
-  const handlerCol = (id: number) => {
-    setColor(id);
-  };
   return (
     <Container>
       <Stack alignItems={"center"} justifyItems={"center"}>
@@ -36,9 +30,15 @@ export const Header = () => {
           justifyContent="space-between"
         >
           <Stack direction={"row"} alignItems="center" gap={3}>
-            <Box width="41px" height="41px" px="4.87px" py="7.18px">
+            <Stack
+              alignItems="center"
+              width="45px"
+              height="45px"
+              px="4.87px"
+              py="7.18px"
+            >
               <Pinecone width={40} height={40} />
-            </Box>
+            </Stack>
             <NavbarLeft />
           </Stack>
           <Stack direction="row" gap={2}>
@@ -53,28 +53,19 @@ export const Header = () => {
               }}
             >
               <BasketDrawer />
-              <Typography fontSize="14px" fontWeight={700}>
-                Сагс
-              </Typography>
             </Stack>
 
-            {gg.map((gg, key) => (
+            {modal.map((modal, key) => (
               <Stack justifyContent={"center"} alignItems={"center"} key={key}>
                 <Box
                   display={"flex"}
                   alignItems={"center"}
                   gap={1}
-                  onClick={() => handlerCol(gg.id)}
                   sx={{
-                    my: 2,
-                    color:
-                      color === gg.id
-                        ? theme.palette.primary.main
-                        : theme.palette.primary.dark,
                     cursor: "pointer",
                   }}
                 >
-                  <Typography> {gg.title}</Typography>
+                  {modal.title}
                 </Box>
               </Stack>
             ))}

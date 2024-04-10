@@ -1,11 +1,13 @@
-import { Link, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import { GreenStar } from "../icons";
 import { Arrow } from "../icons";
 import { CardModal } from "../card/CardModal";
 import { useFoodData } from "@/context/FoodContext";
+import Link from "next/link";
+
 export const HomeCategory = ({ category }: { category: string }) => {
   const { foodData } = useFoodData();
-  console.log(foodData);
+  // console.log(foodData);
   return (
     <Stack width={"1200px"} justifyContent={"space-between"} gap={3}>
       <Stack
@@ -20,7 +22,10 @@ export const HomeCategory = ({ category }: { category: string }) => {
             {category}
           </Typography>
         </Stack>
-        <Link sx={{ textDecoration: "none", cursor: "pointer" }}>
+        <Link
+          style={{ color: "#18BA51", textDecoration: "none" }}
+          href={"/menu"}
+        >
           <Stack gap="5px" direction={"row"} alignItems={"center"}>
             <Typography>Бүгдийг харах</Typography>
             <Arrow width={15} height={25} />

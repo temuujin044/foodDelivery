@@ -2,10 +2,12 @@ import { styled } from "@mui/material";
 import Badge, { BadgeProps } from "@mui/material/Badge";
 import { Basket } from "@/components/icons";
 import { useCartItems } from "@/context/CardContext";
+import { Typography } from "@mui/material";
+
 const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
   "& .MuiBadge-badge": {
-    right: -3,
-    top: 13,
+    right: -10,
+    top: 8,
     border: `2px solid ${theme.palette.background.paper}`,
     padding: "0 4px",
   },
@@ -13,15 +15,23 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 
 export const CartBadge = () => {
   const { cartFoods } = useCartItems();
-  // let sum = 0;
-  // cartFoods.forEach((num) => {
-  //   sum += num.count;
-  // });
+
   return (
-    // <IconButton aria-label="cart">
-    <StyledBadge badgeContent={cartFoods.length} color="primary">
+    <StyledBadge
+      sx={{ direction: "flex", alignItems: "center" }}
+      badgeContent={cartFoods.length}
+      color="primary"
+    >
       <Basket width={24} height={24} />
+      <Typography
+        sx={{
+          marginLeft: "12px",
+        }}
+        fontSize="14px"
+        fontWeight={700}
+      >
+        Сагс
+      </Typography>
     </StyledBadge>
-    // </IconButton>
   );
 };
