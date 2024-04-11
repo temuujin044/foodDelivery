@@ -6,7 +6,8 @@ import * as React from "react";
 export const NewPass = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const [password, setPassword] = React.useState("");
-  const [email, setEmail] = React.useState("");
+  const [email] = React.useState("");
+  // eslint-disable-next-line no-unused-vars
   const [isInputFilled, setIsInputFilled] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {

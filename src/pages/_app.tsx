@@ -7,15 +7,15 @@ import type { AppProps } from "next/app";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <CartContextProvider>
-      <FoodContextProvider>
+    <FoodContextProvider>
+      <CartContextProvider>
         <CustemThemeProvider>
           <Layout>
             <Component {...pageProps} />
           </Layout>
         </CustemThemeProvider>
-      </FoodContextProvider>
-    </CartContextProvider>
+      </CartContextProvider>
+    </FoodContextProvider>
   );
 };
 export default App;

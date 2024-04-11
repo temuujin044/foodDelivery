@@ -9,16 +9,9 @@ import {
 } from "@mui/material";
 import { FoodCard } from "./FoodCard";
 import { useCartItems } from "@/context/CardContext";
-interface data {
-  id: number;
-  category: string;
-  foodName: string;
-  imagePath: string;
-  ingredients: string[];
-  price: number;
-  sale: number;
-  stock: number;
-}
+import { FoodType } from "@/utils/types";
+// import { DrawerCard } from "./DrawerCard";
+
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -39,7 +32,7 @@ const buttonStyle = {
   borderRadius: "10px",
 };
 
-export const CardModal = ({ data }: { data: data }) => {
+export const CardModal = ({ data }: { data: FoodType }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -52,22 +45,11 @@ export const CardModal = ({ data }: { data: data }) => {
     newCount < 1 ? setBuyCount(1) : setBuyCount(newCount);
   };
   const onSubmit = () => {
-    const cartData = {
-      id: data.id,
-      category: data.category,
-      foodName: data.foodName,
-      imagePath: data.imagePath,
-      ingredients: data.ingredients,
-      price: salePrice,
-      sale: data.sale,
-      stock: data.stock,
-      count: buyCount,
-    };
-    setCartFoods([...cartFoods, cartData]);
+    setCartFoods([...cartFoods, { food: data, count: buyCount }]);
     handleClose();
   };
-  const salePrice =
-    data.sale == 0 ? data.price : data.price - (data.price * data.sale) / 100;
+  // const salePrice =
+  //   data.sale == 0 ? data.price : data.price - (data.price * data.sale) / 100;
 
   // console.log("cartData:", cartFoods);
   return (

@@ -14,14 +14,13 @@ export const BasketDrawer = () => {
   };
   let sum = 0;
   cartFoods.forEach((num) => {
-    sum += num.price * num.count;
+    sum += num.food.price * num.count;
   });
   const DrawerList = (
     <Stack
       minHeight={"100vh"}
       sx={{ width: 586 }}
       role="presentation"
-      onClick={toggleDrawer(false)}
       justifyContent={"space-between"}
       alignItems={"center"}
     >

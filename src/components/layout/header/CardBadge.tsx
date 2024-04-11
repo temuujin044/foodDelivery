@@ -6,8 +6,8 @@ import { Typography } from "@mui/material";
 
 const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
   "& .MuiBadge-badge": {
-    right: -10,
-    top: 8,
+    right: 48,
+    top: 1,
     border: `2px solid ${theme.palette.background.paper}`,
     padding: "0 4px",
   },
